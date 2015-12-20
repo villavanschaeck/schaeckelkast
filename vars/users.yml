@@ -1,0 +1,14 @@
+# vim: et:sw=2:ts=2:
+---
+# default_password is taken from the vault
+admin_groups: 'adm,sudo'
+
+users:
+  - { name: 'mrngm', password: "{{ user_default_password }}",
+      groups: "{{ admin_groups }}", shell: "/bin/bash",
+      ssh_pubkey:  "{{ lookup('file', 'pubkeys/mrngm.pub') }}"
+  }
+  - { name: 'daan', password: "{{ user_default_password }}",
+      groups: "{{ admin_groups }}", shell: "/bin/bash",
+      ssh_pubkey:  "{{ lookup('file', 'pubkeys/daan.pub') }}"
+  }
